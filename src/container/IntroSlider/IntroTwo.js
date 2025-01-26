@@ -30,7 +30,7 @@ const IntroTwo = () => {
                                 <img
                                     src={process.env.PUBLIC_URL + "images/logo/c7D.png"}
                                     className="img-fluid"
-                                    style={{ width: "80px", height: "80px" }}
+                                    style={{ width: "100px", height: "100px" }}
                                     alt=""
                                 />
                             </a>

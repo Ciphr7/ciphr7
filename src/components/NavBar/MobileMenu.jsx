@@ -9,7 +9,7 @@ const MobileMenu = ({show, onClose}) => {
         <div className="site-main-mobile-menu-inner">
             <div className="mobile-menu-header">
                 <div className="mobile-menu-logo">
-                    <Logo image={process.env.PUBLIC_URL + "/images/logo/logo.png"}/>
+                    Ciphr7 Designs
                 </div>
                 <div className="mobile-menu-close">
                     <button className="toggle" onClick={onClose}>
