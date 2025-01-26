@@ -13,7 +13,7 @@ import ContactInformationTwo from '../container/ContactInformation/ContactInform
 import BrandContainer from '../container/Brand/BrandContainer';
 import Footer from '../container/Footer/Footer';
 import ScrollToTop from '../components/ScrollToTop.jsx';
-
+import Cards from '../components/Cards/Cards.jsx'
 
 
 
@@ -23,7 +23,9 @@ const HomeTwo = () => {
             <SEO title="Ciphr7 || Designs" />
             <Header />
             <IntroTwo />
-            <HomeAboutTwo />
+           
+            <HomeAboutTwo /> 
+            <Cards />
             <Funfact />
             <ServiceIconBox classOption="bg-color-1" />
             <HomeSkillWithVideo />
