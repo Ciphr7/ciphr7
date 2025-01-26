@@ -18,11 +18,11 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const AboutUs = () => {
     return (
         <React.Fragment>
-            <SEO title="Exomac || About" />
+            <SEO title="Ciphr7 || About" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg.jpg"
-                title="We are an agency located in New York"
+                title="We are an agency located in Texas and Belize"
                 content="Home"
                 contentTwo="About Us"
             />

@@ -5,7 +5,7 @@ import HeaderSearch from '../../components/HeaderSearch/HeaderSearch';
 import Btn from '../../components/Btn/Btn';
 import MobileMenu from "../../components/NavBar/MobileMenu"
 import MainSearch from "../../components/NavBar/MainSearch"
-
+import {NavLink} from 'react-router-dom';
 const Header = () => {
     const [ofcanvasShow, setOffcanvasShow] = useState(false);
     const onCanvasHandler = () => {
@@ -39,9 +39,8 @@ const Header = () => {
                     <div className="container position-relative">
                         <div className="row justify-content-between align-items-center">
                             <div className="col-xl-2 col-auto order-0">
-                                <Logo 
-                                    image={`${process.env.PUBLIC_URL}/images/logo/logo.png`}
-                                />
+                              
+                              <NavLink to={process.env.PUBLIC_URL + "/"}><span className="menu-text">Ciphr7 Designs</span></NavLink>
                             </div>
                             <div className="col-auto col-xl d-flex align-items-center justify-content-xl-center justify-content-end order-2 order-xl-1">
                                 <div className="menu-column-area d-none d-xl-block position-static">
@@ -61,9 +60,7 @@ const Header = () => {
                                 </div>
                             </div>
 
-                            <div className="col-xl-2 col d-none d-sm-flex justify-content-end order-1 order-xl-2">
-                                <Btn name='Buy Now' />
-                            </div>
+                           
                         </div>
                     </div>
                 </div>

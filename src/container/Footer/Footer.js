@@ -13,16 +13,14 @@ const Footer = () => {
                     <div className="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 col-12 mb-6">
                         <div className="footer-widget">
                             <div className="footer-logo">
-                                <Logo 
-                                    image={`${process.env.PUBLIC_URL}/images/logo/footer-logo.png`}
-                                />
+                              Ciphr7 Designs
                             </div>
                             <div className="footer-widget-content">
                                 <div className="content">
 
 
                                     <p><Link to={process.env.PUBLIC_URL + "/"}>(+1) 212-946-2701</Link></p>
-                                    <p><Link to={process.env.PUBLIC_URL + "/"}>hello@hasagency.com</Link> </p>
+                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@ciphr7.com</Link> </p>
                                 </div>
                                 <div className="footer-social-inline">
                                     <a href="#"><i className="fab fa-twitter-square"></i></a>
@@ -46,7 +44,7 @@ const Footer = () => {
 
                 <div className="row">
                     <div className="col">
-                        <p className="copyright">&copy; {new Date().getFullYear()} <strong>Exomac</strong> Made with <i className="fas fa-heart text-danger"></i> by <a href="#"><strong>HasThemes</strong></a>.</p>
+                        <p className="copyright">&copy; {new Date().getFullYear()} <strong>Ciphr7</strong> Made with <i className="fas fa-heart text-danger"></i> by <a href="#"><strong>Ciphr7</strong></a>.</p>
                     </div>
                 </div>
 
