@@ -18,6 +18,7 @@ import Cards from '../components/Cards/Cards.jsx'
 
 
 const HomeTwo = () => {
+   
     return (
         <React.Fragment>
             <SEO title="Ciphr7 || Designs" />
@@ -25,7 +26,7 @@ const HomeTwo = () => {
             <IntroTwo />
            
             <HomeAboutTwo /> 
-            <Cards />
+            <Cards categoryName="website-design" />
             <Funfact />
             <ServiceIconBox classOption="bg-color-1" />
             <HomeSkillWithVideo />
