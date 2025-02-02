@@ -11,7 +11,7 @@ import ScrollToTop from '../components/ScrollToTop.jsx';
 const Contact = () => {
     return (
         <React.Fragment>
-            <SEO title="Exomac || Contact" />
+            <SEO title="Ciphr7 || Contact" />
             <Header />
             <Breadcrumb 
                 image="images/bg/breadcrumb-bg-five.jpg"
@@ -20,8 +20,9 @@ const Contact = () => {
                 contentTwo="Contact Us"
             />
             <ContactInformation />
-            <GoogleMap />
+          
             <ContactFromContainer />
+              <GoogleMap />
             <Footer />
             <ScrollToTop />
         </React.Fragment>

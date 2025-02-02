@@ -17,15 +17,11 @@ const Footer = () => {
                             </div>
                             <div className="footer-widget-content">
                                 <div className="content">
-
-
-                                    <p><Link to={process.env.PUBLIC_URL + "/"}>(+1) 212-946-2701</Link></p>
-                                    <p><Link to={process.env.PUBLIC_URL + "/"}>info@ciphr7.com</Link> </p>
                                 </div>
                                 <div className="footer-social-inline">
                                     <a href="#"><i className="fab fa-twitter-square"></i></a>
-                                    <a href="#"><i className="fab fa-facebook-square"></i></a>
-                                    <a href="#"><i className="fab fa-instagram"></i></a>
+                                    <a href="https://www.facebook.com/Cipher7Designs"><i className="fab fa-facebook-square"></i></a>
+                                    <a href="https://www.instagram.com/ciphr7/"><i className="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
