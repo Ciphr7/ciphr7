@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './Cards.css';
 import CardItem from '../CardItem/CardItem';
+import PostDialog from '../PostDialog/PostDialog';
+
 
 function Cards({ categoryName }) {
   const [posts, setPosts] = useState([]);
   const [categoryId, setCategoryId] = useState(null);
+  const [selectedPostId, setSelectedPostId] = useState(null);
 
   useEffect(() => {
     const fetchCategoryId = async () => {
@@ -15,7 +18,7 @@ function Cards({ categoryName }) {
         const data = await response.json();
 
         if (data.length > 0) {
-          setCategoryId(data[0].id); // Get the category ID
+          setCategoryId(data[0].id);
         } else {
           console.error('Category not found');
         }
@@ -49,20 +52,22 @@ function Cards({ categoryName }) {
     <div className='cards'>
       <h1>Our Works</h1>
       <div className='cards__container'>
-        <div className='cards__wrapper '>
+        <div className='cards__wrapper'>
           {posts.length > 0 ? (
             <ul className='cards__items'>
               {posts.map((post) => {
                 const image =
-                  post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'images/default.jpg'; // Fallback image
+                  post._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'images/default.jpg';
                 return (
-                  <CardItem
-                    key={post.id}
-                    src={image}
-                    text={post.title.rendered}
-                    label=''
-                    path={`/post/${post.id}`}
-                  />
+                  <div key={post.id} onClick={() => setSelectedPostId(post.id)}>
+                    <CardItem
+                      src={image}
+                      text={post.excerpt.rendered}
+                      label={post.title.rendered}
+                      
+                     
+                    />
+                  </div>
                 );
               })}
             </ul>
@@ -71,6 +76,7 @@ function Cards({ categoryName }) {
           )}
         </div>
       </div>
+      {selectedPostId && <PostDialog postId={selectedPostId} onClose={() => setSelectedPostId(null)} />}
     </div>
   );
 }

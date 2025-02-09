@@ -1,4 +1,4 @@
-import {useState, useEffect, useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import SectionTitleTwo from '../../components/SectionTitles/SectionTitleTwo';
 import Tilt from 'react-parallax-tilt';
 import Parallax from 'parallax-js';
@@ -7,31 +7,67 @@ import VisibilitySensor from "react-visibility-sensor";
 
 const AboutFour = () => {
     const [didViewCountUp, setDidViewCountUp] = useState(false);
-    const onVisibilityChange = isVisible => {
+    const [post, setPost] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    const onVisibilityChange = (isVisible) => {
         if (isVisible) {
-        setDidViewCountUp(true);
+            setDidViewCountUp(true);
         }
     };
+
     const [scale] = useState(1.04);
     const sceneEl = useRef(null);
+
     useEffect(() => {
         const parallaxInstance = new Parallax(sceneEl.current, {
-        relativeInput: true,
-        })
-        
+            relativeInput: true,
+        });
         parallaxInstance.enable();
 
         return () => parallaxInstance.disable();
+    }, []);
 
-    }, [])
+    useEffect(() => {
+        fetch("https://app.ciphr7.com/wp-json/wp/v2/posts/956?_embed")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch post data");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                setPost(data);
+                setLoading(false);
+            })
+            .catch((error) => {
+                setError(error.message);
+                setLoading(false);
+            });
+    }, []);
+
     return (
         <div className="section section-padding-top about-section-padding-bottom-200">
             <div className="container">
                 <div className="row">
-
                     <div className="col-xl-6 col-lg-6 col-12" data-aos="fade-up">
                         <div className="about-content-area mt-0 mb-md-10 mb-10">
-                            <SectionTitleTwo 
+                           
+
+                            {/* Display Post Data */}
+                            {loading ? (
+                                <p>Loading post...</p>
+                            ) : error ? (
+                                <p>Error: {error}</p>
+                            ) : post ? (
+                                <div className="post-content">
+                                    <h2 dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+                                    <div dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+                                </div>
+                            ) : null}
+
+<SectionTitleTwo
                                 subTitle="Web design and digital marketing"
                                 title="We think strategy, UX design, and web development"
                             />
@@ -41,11 +77,11 @@ const AboutFour = () => {
                                     <div className="about-funfact">
                                         <div className="number">
                                             <VisibilitySensor
-                                                    onChange={onVisibilityChange}
-                                                    offset={{ top: 10 }}
-                                                    delayedCall
-                                                    >
-                                                    <CountUp end={didViewCountUp ? 110 : 0} />
+                                                onChange={onVisibilityChange}
+                                                offset={{ top: 10 }}
+                                                delayedCall
+                                            >
+                                                <CountUp end={didViewCountUp ? 110 : 0} />
                                             </VisibilitySensor>+
                                         </div>
                                         <h6 className="text">Happy Clients</h6>
@@ -59,7 +95,7 @@ const AboutFour = () => {
                                                 onChange={onVisibilityChange}
                                                 offset={{ top: 10 }}
                                                 delayedCall
-                                                >
+                                            >
                                                 <CountUp end={didViewCountUp ? 130 : 0} />
                                             </VisibilitySensor>+
                                         </div>
@@ -88,12 +124,10 @@ const AboutFour = () => {
                             </div>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AboutFour;
